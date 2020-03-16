@@ -16,8 +16,8 @@ def index(request):
 
 class CallModel(APIView):
     def get(self, request):
-        # r = Restaurant.objects.get(id=1)
-        r = Restaurant(id=1, name='test', category='12', rating=5)
+        r = Restaurant.objects.get(pk=1)
+        # r = Restaurant(id=1, name='test', category='12', rating=5)
         response = {'id': r.id,
                     'name': r.name,
                     'category': r.category,
