@@ -1,1 +1,1 @@
-web: gunicorn rapidapipractice.wsgi --log-file -
+web: gunicorn eat_where.wsgi --log-file -
