@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from django.http import HttpResponse
 
@@ -8,15 +8,15 @@ from rest_framework.views import APIView
 from .models import Restaurant
 
 from .models import Restaurant
-from .serializers import RestaurantSerializer
-from rest_framework import viewsets
+# from .serializers import RestaurantSerializer
+# from rest_framework import viewsets
 
 def index(request):
     return HttpResponse("Hello world!")
 
 class CallModel(APIView):
     def get(self, request):
-        r = Restaurant.objects.get(pk=1)
+        r = get_object_or_404(Restaurant, pk=1)
         # r = Restaurant(id=1, name='test', category='12', rating=5)
         response = {'id': r.id,
                     'name': r.name,
