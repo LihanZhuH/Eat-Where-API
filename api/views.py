@@ -8,8 +8,8 @@ from rest_framework.views import APIView
 from .models import Restaurant
 
 from .models import Restaurant
-# from .serializers import RestaurantSerializer
-# from rest_framework import viewsets
+from .serializers import RestaurantSerializer
+from rest_framework import viewsets
 
 def index(request):
     return HttpResponse("Hello world!")
@@ -24,6 +24,6 @@ class CallModel(APIView):
                     'rating': r.rating}
         return JsonResponse(response)
 
-# class RestaurantViewSet(viewsets.ModelViewSet):
-#     queryset = Restaurant.objects.all()
-#     serializer_class = RestaurantSerializer
+class RestaurantViewSet(viewsets.ModelViewSet):
+    queryset = Restaurant.objects.all()
+    serializer_class = RestaurantSerializer
