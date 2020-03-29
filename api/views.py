@@ -14,6 +14,7 @@ from rest_framework import viewsets
 import json
 
 def index(request):
+    return HttpResponse("hi")
     if request.method == 'GET':
         print("============== here ================")
         data=json.loads(request.body)
