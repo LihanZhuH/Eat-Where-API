@@ -37,5 +37,5 @@ router.register(r'restaurant', RestaurantViewSet)
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     url(r'^', include(router.urls)),
-    url(r'^hello/', include('api.urls'))
+    url(r'^api/', include('api.urls'))
 ]

@@ -11,8 +11,22 @@ from .models import Restaurant
 from .serializers import RestaurantSerializer
 from rest_framework import viewsets
 
+import json
+
 def index(request):
-    return HttpResponse("Hello world!")
+    if request.method == 'GET':
+        print("============== here ================")
+        data=json.loads(request.body)
+        # for getting user response
+        print(data)
+        response = {'id': data['id'],
+                    'name': data['name'],
+                    'category': data['category'],
+                    'rating': data['rating'] 
+                    }
+        return JsonResponse(response)
+    else:
+        return HttpResponse("hi")
 
 class CallModel(APIView):
     def get(self, request):
